@@ -1,0 +1,18 @@
+services:
+  fastapi:
+    image: vinothak7/fastapi:dev #replace with actual docker user id
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 8005:8000
+
+  streamlit:
+    image: vinothak7/streamlit:dev #replace with actual docker user id
+    build:
+      context: ./streamlit_app
+      dockerfile: Dockerfile
+    ports:
+      - 8501:8501
+    environment:
+      API_URL: http://fastapi:8000
