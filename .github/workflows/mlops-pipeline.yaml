@@ -125,7 +125,7 @@ jobs:
       uses: docker/login-action@v3
       with:
         registry: docker.io
-        username: ${{ vars.DOCKERHUB_PRASADG072 }}
+        username: ${{ vars.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
 
 
@@ -135,4 +135,4 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: docker.io/${{ vars.DOCKERHUB_PRASADG072 }}/house-price-model:latest
+          tags: docker.io/${{ vars.DOCKERHUB_USERNAME }}/house-price-model:latest
